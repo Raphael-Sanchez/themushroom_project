@@ -57,3 +57,8 @@
 ###> Embedded web-server pid file ###
 /.web-server-pid
 ###< Embedded web-server pid file ###
+
+###> PhpStorm and OS ###
+.DS_Store
+.idea
+###< PhpStorm and OS ###
