@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}The Mushroom Project{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+    <link rel="stylesheet" href="{{ asset('build/css/app.css') }}" />
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        Connecté en tant que {{ app.user.firstname|capitalize }} {{ app.user.lastname|capitalize }}
+        <br><a href="/logout">Déconnexion</a>
+    {% endif %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/raphaelsanchez/Documents/Projets/themushroom_project/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/raphaelsanchez/Documents/Projets/themushroom_project/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="example-wrapper">
+        <h1 id="h1-mainpage">The Mushroom Project</h1>
+        <br>
+        {% if is_granted('ROLE_USER') %}
+            Bonjour {{ app.user.firstname|capitalize }},
+            <br><br>Bienvenue sur MushroomProject ! <br><br>Avant d'activer l'ajout automatique d'évènements à votre calendrier pour vous informer des jours les plus propices à la cueillette de champignons, nous avons besoin de quelques informations complémentaires pour une expérience optimale.
+            <br><br><a href="{{ path('user_edit', {'id': app.user.id}) }}"><button id="button-lets-go">C'est parti !</button></a>
+        {% else %}
+            <h2><a href="/register">Inscription</a> | <a href="/login">Connexion</a></h2>
+            <img src="{{ asset('build/images/emoji.png') }}" alt="emoji" id="emoji-mainpage">
+        {% endif %}
+    </div>
 {% endblock %}

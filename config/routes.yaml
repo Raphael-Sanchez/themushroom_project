@@ -1,3 +1,7 @@
 index:
     path: /
     controller: App\Controller\MainController::index
+
+user_edit:
+    path: /user/edit/{id}
+    controller: App\Controller\UserController::edit

@@ -16,23 +16,25 @@ class UserType extends AbstractType
         if ($options['userParameters'])
         {
             $builder
-//                ->add('lastname')
-//                ->add('firstname')
+                ->add('lastname')
+                ->add('firstname')
                 ->remove('username')
                 ->remove('usernameCanonical')
                 ->remove('email')
                 ->remove('password')
                 ->remove('plainPassword')
                 ->add('save', SubmitType::class, [
-                    'attr' => ['class' => 'save'],
+                    'attr' => [
+                        'class' => 'save',
+                    ],
                 ]);
             ;
         }
         else
         {
             $builder
-//                ->add('lastname')
-//                ->add('firstname')
+                ->add('lastname')
+                ->add('firstname')
                 ->remove('username')
                 ->remove('usernameCanonical')
             ;
