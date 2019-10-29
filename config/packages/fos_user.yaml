@@ -1,0 +1,10 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: App\Entity\User
+    from_email:
+        address: "rsanchez.developpement@gmail.com"
+        sender_name: "rsanchez.developpement@gmail.com"
+    registration:
+        form:
+            type: App\Form\UserType
