@@ -1,5 +1,6 @@
-
 ###> symfony/framework-bundle ###
+/.env
+/.env.test
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -17,3 +18,42 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+###> Parameters ###
+/app/config/parameters.yml
+/app/config/parameters.ini
+###< Parameters ###
+
+###> Managed by Composer ###
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+###< Managed by Composer ###
+
+###> Assets and user uploads ###
+/web/bundles/
+/web/uploads/
+###< Assets and user uploads ###
+
+###> PHPUnit ###
+/app/phpunit.xml
+/phpunit.xml
+###< PHPUnit ###
+
+###> Build data ###
+/build/
+###< Build data ###
+
+###> Composer PHAR ###
+/composer.phar
+###< Composer PHAR ###
+
+###> Backup entities generated with doctrine:generate:entities command ###
+**/Entity/*~
+###< Backup entities generated with doctrine:generate:entities command ###
+
+###> Embedded web-server pid file ###
+/.web-server-pid
+###< Embedded web-server pid file ###
